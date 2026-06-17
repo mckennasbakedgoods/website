@@ -1,405 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-     <!-- This makes the layout resize correctly on phones and tablets. -->
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <!-- This is the title shown on the browser tab. -->
-  <title>Mckenna's Baked Goods</title>
-  <meta name="description" content="French-inspired bakery in Boise, Idaho serving muffins, cakes, and custom orders."/
-  >
-   <link rel="stylesheet" href="styles.css" /> 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <style>
-/* =========================
-       HEADER / NAVIGATION
-    ========================== */
+  <title>Mckenna's Baked Goods — Small-batch muffins & custom cakes in Boise, Idaho</title>
+  <meta name="description" content="Le Cordon Bleu–trained, home-style bakery in Boise, Idaho. Small-batch muffins, build-your-own celebration cakes, and custom orders. Request an order today." />
 
-    /* Sticky header stays at the top while scrolling. */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(247, 241, 234, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-    }
-    /* Navigation layout: logo on the left, links on the right. */
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    /* Bakery logo styling. */
-    .logo {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-    /* Navigation links in a row on desktop. */
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-    }
-     /* Adds padding around nav links to make them easier to click. */
-    .nav-links a {
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-    }
-      /* Hover effect when the mouse is over a nav link. */
-    .nav-links a:hover {
-      background: var(--surface-2);
-    }
-     /* =========================
-       HERO SECTION
-    ========================== */
-    .hero {
-      padding: 5rem 0 4rem;
-    }
-    /* Two-column layout for hero text and side card. */
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
-    }
-    /* Small label above main heading */
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    /* All headings use the elegant serif font. */
-    h1, h2, h3 {
-      font-family: "Cormorant Garamond", serif;
-      line-height: 1;
-    }
-    /* Main page heading. */
-    h1 {
-      font-size: clamp(3rem, 7vw, 5.6rem);
-      margin-bottom: 1rem;
-      max-width: 9ch;
-    }
-    /* Supporting paragraph under the main heading. */
-    .lead {
-      max-width: 52ch;
-      color: var(--muted);
-      font-size: 1.08rem;
-      margin-bottom: 2rem;
-    }
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mckenna's Baked Goods" />
+  <meta property="og:description" content="Small-batch muffins & custom cakes, baked with French technique and a home-style heart. Boise, Idaho." />
+  <meta property="og:image" content="images/hero.jpg" />
+  <meta name="theme-color" content="#fbf6ef" />
 
-    /* Button row under hero text. */
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    /* Base button style. */
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 1.3rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      font-weight: 600;
-    }
-
-    /* Filled main action button. */
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    /* Darker hover effect for the main button. */
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
-
-    /* Outlined secondary button. */
-    .btn-secondary {
-      background: var(--surface);
-    }
-
-    /* Shared card style used in several places. */
-    .hero-card,
-    .item-card,
-    .about-box,
-    .contact-box,
-    form {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    /* Styling for the card on the right side of the hero section. */
-    .hero-card {
-      padding: 2rem;
-    }
-
-    .hero-card h3 {
-      margin-bottom: 1rem;
-      font-size: 2rem;
-    }
-
-    /* Removes bullet points from the list in the hero card. */
-    .hero-card ul {
-      list-style: none;
-    }
-
-    /* Adds spacing between each bakery item in the card. */
-    .hero-card li {
-      padding: 0.8rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-card li:last-child {
-      border-bottom: none;
-    }
- /* =========================
-       GENERAL SECTIONS
-    ========================== */
-
-    section {
-      padding: 4rem 0;
-    }
-
-    .section-title {
-      margin-bottom: 1.8rem;
-    }
-
-    .section-title h2 {
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      margin-bottom: 0.6rem;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      max-width: 60ch;
-    }
-
-    /* Three cards in a row for menu items. */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.4rem;
-    }
-
-    .item-card {
-      padding: 1.4rem;
-    }
-
-    .item-card h3 {
-      margin-bottom: 0.7rem;
-      font-size: 1.9rem;
-    }
-
-    .item-card p {
-      color: var(--muted);
-    }
-
-    /* Two-column layout for about and contact areas. */
-    .about-grid,
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .about-box,
-    .contact-box,
-    form {
-      padding: 1.5rem;
-    }
-
-    /* Contact form layout. */
-    form {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    /* Makes form labels bold and easier to read. */
-    label {
-      font-weight: 600;
-    }
-
-    /* Shared styling for text boxes. */
-    input,
-    textarea {
-      width: 100%;
-      padding: 0.9rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: #fff;
-      font: inherit;
-    }
-
-    /* Lets the user drag the textarea taller if needed. */
-    textarea {
-      resize: vertical;
-      min-height: 140px;
-    }
-
-    /* Footer styling. */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      color: var(--muted);
-    }
-
-
-
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Manrope:wght@400..700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Header Start__-->
-     <header>
-        <div class="container nav">
-            <a href="#" class="logo">Mckenna's Baked Goods </a>
-            <nav class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
+  <a class="skip-link" href="#menu">Skip to menu</a>
+
+  <!-- ============ SVG sprite: her brand marks, rebuilt ============ -->
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <symbol id="i-sparkle" viewBox="0 0 24 24">
+        <path d="M12 0c.6 6 5.4 10.8 12 12-6.6 1.2-11.4 6-12 12-.6-6-5.4-10.8-12-12C6.6 10.8 11.4 6 12 0Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-whisk" viewBox="0 0 48 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 6c-5 0-9 3-9 9 0 6 3 13 9 21 6-8 9-15 9-21 0-6-4-9-9-9Z"/>
+        <path d="M24 6v30"/><path d="M17 9c2 9 2 19 0 27"/><path d="M31 9c-2 9-2 19 0 27"/>
+        <path d="M24 36c0 8-2 16-6 22"/><path d="M24 36c0 8 2 16 6 22"/>
+      </symbol>
+      <symbol id="i-cupcake" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 22c-3 0-5-2-5-5 0-3 2-5 5-5 0-4 4-7 8-7s8 3 8 7c3 0 5 2 5 5 0 3-2 5-5 5"/>
+        <path d="M13 22h22l-3 18a3 3 0 0 1-3 3H19a3 3 0 0 1-3-3l-3-18Z"/>
+        <path d="M20 22v21M28 22v21"/>
+      </symbol>
+      <symbol id="i-cake" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 40V25c0-2 2-4 4-4h24c2 0 4 2 4 4v15"/>
+        <path d="M8 31c3 0 3 3 6 3s3-3 6-3 3 3 6 3 3-3 6-3 3 3 6 3"/>
+        <path d="M24 21v-6"/><path d="M24 9c2 0 3 1 3 3s-1 3-3 3-3-1-3-3"/>
+        <path d="M5 40h38"/>
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Mckenna's Baked Goods — home">
+        <span class="brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="badge-svg">
+            <defs>
+              <path id="arcTop" d="M60 60 m-44 0 a44 44 0 0 1 88 0" />
+              <path id="arcBot" d="M60 60 m-44 0 a44 44 0 0 0 88 0" />
+            </defs>
+            <circle cx="60" cy="60" r="57" class="badge-ring" />
+            <circle cx="60" cy="60" r="51" class="badge-ring-thin" />
+            <text class="badge-arc"><textPath href="#arcTop" startOffset="50%">MCKENNA'S</textPath></text>
+            <text class="badge-arc"><textPath href="#arcBot" startOffset="50%">BAKED&#160;GOODS</textPath></text>
+            <text x="58" y="74" class="badge-m">M</text>
+            <path class="badge-heart" d="M74 56c1.6-1.7 4.4-1 4.4 1.3 0 1.7-2.2 3.4-4.4 5-2.2-1.6-4.4-3.3-4.4-5 0-2.3 2.8-3 4.4-1.3Z"/>
+            <circle cx="30" cy="60" r="1.4" class="badge-dot"/><circle cx="90" cy="60" r="1.4" class="badge-dot"/>
+          </svg>
+        </span>
+        <span class="brand-word"><em>Mckenna's</em><span>Baked Goods</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
         <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        </nav>
-        </div>
-     </header>
-     <main>
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
+        <a href="#story">About</a>
+        <a href="#order-steps">How to order</a>
+        <a href="#order" class="btn btn-primary nav-cta">Request an order</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <a href="#menu">Menu</a>
+      <a href="#story">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#order-steps">How to order</a>
+      <a href="#order" class="btn btn-primary">Request an order</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ Hero ============ -->
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="container hero-grid">
-        <div>
-          <!-- Small label above the main title -->
-          <p class="eyebrow">Home-style bakery · Boise, Idaho</p>
-
-          <!-- Main headline -->
-          <h1>Muffins and cakes</h1>
-
-          <!-- Supporting text -->
+        <div class="hero-copy">
+          <p class="kicker"><svg class="spark"><use href="#i-sparkle"/></svg> Baked to order · Boise, Idaho</p>
+          <h1 id="hero-heading">Small-batch bakes, made with <em>a little love</em> and a lot of butter.</h1>
           <p class="lead">
-            Mckenna's Baked Goods blends a soft home style feeling with comforting,
-            small-batch bakes made for brunch tables, birthdays, and everyday treats.
+            French-technique muffins and build-your-own celebration cakes from a Le&nbsp;Cordon&nbsp;Bleu
+            graduate — baked fresh, boxed by hand, and a little too pretty to share.
           </p>
-         <!-- Main action buttons -->
-          <div class="buttons">
-            <a href="#menu" class="btn btn-primary">See the menu</a>
-            <a href="#contact" class="btn btn-secondary">Order a cake</a>
+          <div class="btn-row">
+            <a href="#order" class="btn btn-primary">Request an order <svg class="btn-ic"><use href="#i-arrow"/></svg></a>
+            <a href="#menu" class="btn btn-ghost">See the menu</a>
           </div>
-        </div>
-
-        <!-- Right-side feature card -->
-        <div class="hero-card">
-          <h3>Featured today</h3>
-           <ul>
-            <li>Strawberry short cake muffins</1i>
-            <li> Lemon Poppy Seed Muffins</li>
-            
+          <ul class="hero-trust">
+            <li>Muffins by the 6 or 12</li>
+            <li aria-hidden="true">·</li>
+            <li>Custom 6″ cakes</li>
+            <li aria-hidden="true">·</li>
+            <li>$10 local delivery</li>
           </ul>
         </div>
+
+        <figure class="hero-figure reveal">
+          <span class="hero-tag"><svg class="spark"><use href="#i-sparkle"/></svg> this week's bake</span>
+          <img src="images/hero.jpg" alt="A French vanilla layer cake with strawberry filling and a glossy red-glazed top on a glass stand, one slice cut to reveal the layers."
+               width="1122" height="1199" fetchpriority="high" decoding="async" />
+        </figure>
       </div>
-    </section> 
-     <!-- MENU SECTION -->
-    <section id="menu">
+    </section>
+
+    <!-- ============ Story ============ -->
+    <section class="story section" id="story" aria-labelledby="story-heading">
+      <div class="container story-grid">
+        <figure class="story-figure reveal">
+          <img src="images/story.jpg" alt="Mckenna, the baker, smiling on a sunny tree-lined street."
+               width="1080" height="1440" loading="lazy" decoding="async" />
+        </figure>
+        <div class="story-copy">
+          <p class="label"><em>the baker</em></p>
+          <h2 id="story-heading">Hi, I'm Mckenna.</h2>
+          <p>
+            I trained at <strong>Le&nbsp;Cordon&nbsp;Bleu</strong> and fell in love with the patient,
+            fussy little details of French pâtisserie — then brought all of it home to my own kitchen
+            in Boise.
+          </p>
+          <p>
+            Everything is small-batch and made the slow way: real butter, good fruit, and recipes
+            I've tinkered with until they taste like a hug. Whether it's a box of muffins for a slow
+            morning or a cake for the people you love, I'd be so happy to bake it for you.
+          </p>
+          <a href="https://www.instagram.com/mckennas.baked.goods/" class="inline-link" target="_blank" rel="noopener">
+            <svg class="ic"><use href="#i-instagram"/></svg> @mckennas.baked.goods
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Menu ============ -->
+    <section class="menu section section-warm" id="menu" aria-labelledby="menu-heading">
       <div class="container">
-        <div class="section-title">
-          <h2>Signature bakes</h2>
-          <p>
-            A simple selection.
-          </p>
+        <header class="section-head">
+          <p class="label"><em>the menu</em></p>
+          <h2 id="menu-heading">What's in the oven</h2>
+          <p class="section-sub">Flavors rotate with the seasons — here's what's on rotation right now.</p>
+        </header>
+
+        <div class="menu-grid">
+          <article class="menu-col reveal">
+            <div class="menu-col-head">
+              <svg class="menu-ic"><use href="#i-cupcake"/></svg>
+              <h3><em>Muffins</em></h3>
+              <span class="menu-unit">half-dozen / dozen</span>
+            </div>
+            <ul class="price-list">
+              <li><span class="pl-name">Cherry Almond</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-price">$18 / $35</span></li>
+              <li><span class="pl-name">Coffee Cake</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-price">$15 / $30</span></li>
+              <li><span class="pl-name">Lilikoi Poppy Seed</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-price">$15 / $30</span></li>
+              <li><span class="pl-name">Orange Cranberry</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-price">$15 / $30</span></li>
+              <li><span class="pl-name">POG <span class="pl-note">passion · orange · guava</span></span><span class="pl-dots" aria-hidden="true"></span><span class="pl-price">$18 / $35</span></li>
+              <li><span class="pl-name">Blueberry Lemon</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-price">$15 / $30</span></li>
+              <li><span class="pl-name">Raspberry Lemon</span><span class="pl-dots" aria-hidden="true"></span><span class="pl-price">$15 / $30</span></li>
+            </ul>
+          </article>
+
+          <article class="menu-col reveal">
+            <div class="menu-col-head">
+              <svg class="menu-ic"><use href="#i-cake"/></svg>
+              <h3><em>Cakes</em></h3>
+              <span class="menu-unit">6″ round · $60</span>
+            </div>
+            <p class="cake-intro">Build your own celebration cake — pick one from each:</p>
+            <div class="build-list">
+              <div class="build-row">
+                <span class="build-label">Base</span>
+                <span class="build-opts"><span>French Vanilla</span><span>Chocolate</span></span>
+              </div>
+              <div class="build-row">
+                <span class="build-label">Filling</span>
+                <span class="build-opts"><span>Raspberry</span><span>Strawberry</span><span>Fudge</span></span>
+              </div>
+              <div class="build-row">
+                <span class="build-label">Frosting</span>
+                <span class="build-opts"><span>Vanilla</span><span>Chocolate</span></span>
+              </div>
+            </div>
+            <p class="cake-note">Dreaming of something special? Tell me about it in your order — I love a custom request.</p>
+          </article>
         </div>
 
-        <div class="cards">
-          <article class="item-card">
-            <h3>Muffins</h3>
-            <p>Strawberry short cake, lilikoi poppy seed, Cherry almond and other seasonal fruit flavors.</p>
-          </article>
+        <p class="menu-foot">
+          <svg class="spark"><use href="#i-sparkle"/></svg>
+          Local delivery within Boise is a flat <strong>$10</strong>, or pick up for free.
+        </p>
+      </div>
+    </section>
 
-          <article class="item-card">
-            <h3>Cakes</h3>
-            <p>Layer cakes for birthdays, gatherings, and celebrations with elegant finishes and soft flavors.</p>
-          </article>
-
-          <article class="item-card">
-            <h3>Custom orders</h3>
-            <p>Pickup-friendly cakes and bake boxes for weekends, showers, and small events.</p>
-          </article>
+    <!-- ============ Gallery ============ -->
+    <section class="gallery section" id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="label"><em>fresh from the kitchen</em></p>
+          <h2 id="gallery-heading">A little look</h2>
+        </header>
+        <div class="gallery-grid">
+          <figure class="g-item reveal"><img src="images/gallery-1.jpg" alt="A kraft bakery box of streusel muffins held over a sunlit park and pond." width="900" height="1200" loading="lazy" decoding="async"/></figure>
+          <figure class="g-item reveal"><img src="images/gallery-2.jpg" alt="A strawberry-drip celebration cake topped with whipped rosettes and fresh strawberries." width="1053" height="791" loading="lazy" decoding="async"/></figure>
+          <figure class="g-item reveal"><img src="images/gallery-3.jpg" alt="Three glazed streusel muffins on a white plate, held outdoors by the water." width="900" height="1200" loading="lazy" decoding="async"/></figure>
+          <figure class="g-item reveal"><img src="images/gallery-4.jpg" alt="A buttercream cake with a glossy strawberry-glazed top and red velvet crumb base beside fresh flowers." width="1000" height="1068" loading="lazy" decoding="async"/></figure>
+          <figure class="g-item reveal"><img src="images/gallery-5.jpg" alt="A charlotte cake wrapped in ladyfingers, dusted with cocoa and lit with two gold candles." width="900" height="1200" loading="lazy" decoding="async"/></figure>
+          <figure class="g-item reveal"><img src="images/gallery-6.jpg" alt="A patterned platter piled with glazed streusel muffins, held outdoors in the sun." width="900" height="1200" loading="lazy" decoding="async"/></figure>
+          <figure class="g-item reveal"><img src="images/gallery-7.jpg" alt="A lemon poppy seed muffin with vanilla glaze on a windowsill beside a houseplant." width="900" height="1200" loading="lazy" decoding="async"/></figure>
+          <figure class="g-item reveal"><img src="images/gallery-8.jpg" alt="A platter of blueberry streusel muffins with vanilla drizzle, held outdoors." width="900" height="1200" loading="lazy" decoding="async"/></figure>
         </div>
       </div>
     </section>
-     <!-- ABOUT SECTION -->
-    <section id="about">
-      <div class="container about-grid">
-        <div class="section-title">
-          <p class="eyebrow">About Mckenna's Baked Goods</p>
-          <h2>A bakery with a quiet patisserie mood.</h2>
-        </div>
 
-        <div class="about-box">
-          <p>
-            Mckenna graduated from Le Cordon Bleu in London in 2024. She is a master of French cuisine
-            and baking. Fusing French pâtisserie technique with American home-style recipes, we create bakes that are cozy to eat and polished enough for any celebration.
-          </p>
-        </div>
+    <!-- ============ How to order ============ -->
+    <section class="steps section section-warm" id="order-steps" aria-labelledby="steps-heading">
+      <div class="container">
+        <header class="section-head">
+          <p class="label"><em>steps</em></p>
+          <h2 id="steps-heading">How to order</h2>
+          <p class="section-sub">Four easy steps from craving to doorstep.</p>
+        </header>
+        <ol class="steps-list">
+          <li class="step reveal"><span class="step-num">1</span><div><h3>Browse the menu</h3><p>Find your flavors above, or dream up a custom cake.</p></div></li>
+          <li class="step reveal"><span class="step-num">2</span><div><h3>Send your request</h3><p>Use the form below (or DM me) with what you'd like and when.</p></div></li>
+          <li class="step reveal"><span class="step-num">3</span><div><h3>Pick a payment</h3><p>I take Venmo or Apple&nbsp;Pay — whatever's easiest for you.</p></div></li>
+          <li class="step reveal"><span class="step-num">4</span><div><h3>Place your order</h3><p>I'll confirm the details and get baking. Pickup or $10 local delivery.</p></div></li>
+        </ol>
       </div>
     </section>
- <!-- CONTACT SECTION -->
-     <section id="contact">
-      <div class="container contact-grid">
-        <form action="https://formspree.io/f/your-id-here" method="POST">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+    <!-- ============ Order form ============ -->
+    <section class="order section" id="order" aria-labelledby="order-heading">
+      <div class="container order-grid">
+        <div class="order-intro">
+          <p class="label"><em>let's bake</em></p>
+          <h2 id="order-heading">Request an order</h2>
+          <p>Tell me what you're celebrating and when you need it. I'll get back to you to confirm the details and payment.</p>
+          <ul class="order-facts">
+            <li><svg class="ic"><use href="#i-pin"/></svg> Boise, Idaho — pickup or $10 local delivery</li>
+            <li><svg class="ic"><use href="#i-mail"/></svg> <a href="mailto:mckennasbakedgoods@gmail.com">mckennasbakedgoods@gmail.com</a></li>
+            <li><svg class="ic"><use href="#i-instagram"/></svg> <a href="https://www.instagram.com/mckennas.baked.goods/" target="_blank" rel="noopener">@mckennas.baked.goods</a></li>
+          </ul>
+          <p class="order-lead-note">Please send custom-cake requests at least <strong>1 week</strong> ahead when you can. 💛</p>
+        </div>
 
-          <label for="message">Order details</label>
-          <textarea id="message" name="message" required></textarea>
+        <form class="order-form" action="https://formsubmit.co/mckennasbakedgoods@gmail.com" method="POST">
+          <!-- Formsubmit config -->
+          <input type="hidden" name="_subject" value="New order request — Mckenna's Baked Goods" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-          <button type="submit" class="btn btn-primary">Send inquiry</button>
-        </form>
-
-        <div class="contact-box">
-          <div class="section-title">
-            <p class="eyebrow">Contact</p>
-            <h2>Boise, Idaho</h2>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
           </div>
-          <p> Email: 
-           <p> Instagram: @mckennas.baked.goods</p>
-           <p> Phone: </p>
-          </p>
-        </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(208) 555-0199" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-date">Date needed</label>
+            <input id="f-date" name="date_needed" type="date" />
+          </div>
+          <div class="field">
+            <label for="f-order">What would you like?</label>
+            <textarea id="f-order" name="order_details" required rows="5"
+              placeholder="e.g. a dozen lilikoi poppy seed muffins, or a 6″ French vanilla cake with strawberry filling for a birthday on the 14th"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send my request <svg class="btn-ic"><use href="#i-arrow"/></svg></button>
+          <p class="form-fineprint">No payment now — I'll reply to confirm everything first.</p>
+        </form>
       </div>
     </section>
-  </main>   
-   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p></p> Mckenna's Baked Goods · Home-style muffins and cakes in Boise, Idaho.</p>
-      <p> Web-design: Alec Martin, Nils Matteson</p>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-word footer-word"><em>Mckenna's</em><span>Baked Goods</span></span>
+        <p>Small-batch muffins & custom cakes, baked with French technique and a home-style heart.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#menu">Menu</a><a href="#story">About</a><a href="#order">Order</a>
+        <a href="https://www.instagram.com/mckennas.baked.goods/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p class="footer-meta">
+        Boise, Idaho<br />
+        <a href="mailto:mckennasbakedgoods@gmail.com">mckennasbakedgoods@gmail.com</a>
+      </p>
+    </div>
+    <div class="container footer-base">
+      <p>© <span id="year">2026</span> Mckenna's Baked Goods</p>
+      <p>Site by <a href="https://github.com/mckennasbakedgoods" rel="noopener">Matteson Systems</a></p>
     </div>
   </footer>
 
-  <script>
-    // Get the menu button from the page using its ID.
-    const menuBtn = document.getElementById("menuBtn");
-
-    // Get the navigation links container from the page.
-    const navLinks = document.getElementById("navLinks");
-
-    // When the menu button is clicked, toggle the "show" class.
-    // This opens or closes the mobile navigation menu.
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-  </script>
+  <script src="main.js" defer></script>
 </body>
 </html>
