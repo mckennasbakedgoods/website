@@ -141,14 +141,9 @@ p { text-wrap: pretty; }
 }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; }
 
-.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--ink); }
-.brand-badge { width: 46px; height: 46px; flex: none; }
-.badge-svg { width: 100%; height: 100%; }
-.badge-ring { fill: none; stroke: var(--ink); stroke-width: 2; }
-.badge-ring-thin { fill: none; stroke: var(--ink); stroke-width: 0.8; }
-.badge-m { font-family: var(--font-display); font-style: italic; font-size: 46px; font-weight: 500; fill: var(--ink); text-anchor: middle; }
-.badge-heart { fill: var(--berry); }
-.badge-dot { fill: var(--ink); }
+.brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; color: var(--ink); }
+.brand-badge { width: 52px; height: 52px; flex: none; }
+.brand-badge img { width: 100%; height: 100%; object-fit: contain; }
 
 .brand-word { display: flex; flex-direction: column; line-height: 1; font-family: var(--font-display); }
 .brand-word em { font-size: 1.35rem; font-weight: 500; }
@@ -284,6 +279,7 @@ textarea { resize: vertical; min-height: 130px; }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--ink); color: oklch(90% 0.01 70); padding-block: clamp(3rem, 2rem + 3vw, 5rem) 1.5rem; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid oklch(40% 0.02 50); }
+.footer-logo { width: 84px; height: 84px; display: block; }
 .footer-word em { color: oklch(96% 0.01 70); font-size: 1.5rem; }
 .footer-word span { color: oklch(72% 0.02 60); }
 .footer-brand p { color: oklch(78% 0.015 60); max-width: 38ch; margin: .8rem 0 0; }
