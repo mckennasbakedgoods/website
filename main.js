@@ -67,6 +67,65 @@
     if (img.complete && img.naturalWidth === 0) markMissing(img);
   });
 
+  /* ---------- Order form: async submit with feedback ---------- */
+  const form = document.querySelector(".order-form");
+  if (form) {
+    const status = document.getElementById("formStatus");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const ENDPOINT = "https://formsubmit.co/ajax/mckennasbakedgoods@gmail.com";
+
+    const showStatus = (msg, ok) => {
+      if (!status) return;
+      status.textContent = msg;
+      status.className = "form-status " + (ok ? "is-ok" : "is-err");
+      status.hidden = false;
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Honeypot: a filled hidden field means a bot. Pretend success, send nothing.
+      if (form.querySelector(".hp")?.value) {
+        form.innerHTML = '<div class="order-success"><h3>Thank you!</h3><p>Your request is in.</p></div>';
+        return;
+      }
+
+      // Build payload from the real fields.
+      const data = {};
+      new FormData(form).forEach((v, k) => { if (k !== "_honey") data[k] = v; });
+
+      submitBtn.setAttribute("aria-busy", "true");
+      if (status) status.hidden = true;
+
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        const body = await res.json().catch(() => ({}));
+
+        if (res.ok && String(body.success) === "true") {
+          form.innerHTML =
+            '<div class="order-success"><h3>Thank you, your request is in!</h3>' +
+            "<p>Mckenna will get back to you soon to confirm the details. Talk soon. 💛</p></div>";
+        } else {
+          submitBtn.removeAttribute("aria-busy");
+          showStatus(
+            "Hmm, that didn't send. Please email mckennasbakedgoods@gmail.com or DM @mckennas.baked.goods and I'll get right back to you.",
+            false
+          );
+        }
+      } catch (err) {
+        submitBtn.removeAttribute("aria-busy");
+        showStatus(
+          "Looks like your connection dropped. Please try again, or email mckennasbakedgoods@gmail.com.",
+          false
+        );
+      }
+    });
+  }
+
   /* ---------- Footer year ---------- */
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
