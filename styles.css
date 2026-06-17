@@ -19,7 +19,7 @@
   /* Type */
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
   --font-body: "Manrope", system-ui, -apple-system, sans-serif;
-  --text-hero: clamp(2.15rem, 1rem + 5.1vw, 5rem);
+  --text-hero: clamp(2.2rem, 1.2rem + 3.6vw, 4rem);
   --text-h2:   clamp(2rem, 1.2rem + 3vw, 3.25rem);
   --text-h3:   clamp(1.3rem, 1.1rem + 0.8vw, 1.7rem);
   --text-lead: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
@@ -170,7 +170,7 @@ p { text-wrap: pretty; }
 /* ---------- Hero ---------- */
 .hero { padding-block: clamp(2.5rem, 1rem + 6vw, 6rem) var(--space-section); overflow: clip; }
 .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
-.hero h1 { font-size: var(--text-hero); margin-bottom: 1.3rem; max-width: 16ch; }
+.hero h1 { font-size: var(--text-hero); margin-bottom: 1.3rem; max-width: 19ch; }
 .hero .lead { font-size: var(--text-lead); color: var(--ink-soft); max-width: 46ch; margin: 0 0 2rem; }
 .btn-row { display: flex; flex-wrap: wrap; gap: .9rem; }
 .hero-trust { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; list-style: none; padding: 0; margin: 2.2rem 0 0; color: var(--ink-soft); font-size: .92rem; font-weight: 600; }
@@ -302,6 +302,28 @@ textarea { resize: vertical; min-height: 130px; }
 
 .spark { animation: twinkle 4s ease-in-out infinite; }
 @keyframes twinkle { 0%, 100% { opacity: .55; transform: scale(.9); } 50% { opacity: 1; transform: scale(1); } }
+
+/* Hero entrance: staggered rise-in on load (enhances already-visible content) */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-anim { opacity: 0; transform: translateY(20px); animation: rise 0.9s var(--ease-out) forwards; }
+  .hero-anim.a1 { animation-delay: 0.05s; }
+  .hero-anim.a2 { animation-delay: 0.14s; }
+  .hero-anim.a3 { animation-delay: 0.24s; }
+  .hero-anim.a4 { animation-delay: 0.34s; }
+  .hero-figure.hero-anim { transform: translateY(28px) scale(0.985); }
+}
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+/* Flavor marquee: a single, slow band showcasing the muffin lineup */
+.marquee { background: var(--surface-2); border-block: 1px solid var(--line); overflow: hidden; padding-block: 1.1rem; }
+.marquee-track { display: flex; align-items: center; gap: 1.6rem; width: max-content; animation: scroll-x 46s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track span {
+  font-family: var(--font-display); font-style: italic; font-size: clamp(1.3rem, 1rem + 1.4vw, 2rem);
+  color: var(--ink); white-space: nowrap; flex: none;
+}
+.marquee-spark { width: 0.9rem; height: 0.9rem; color: var(--berry); flex: none; }
+@keyframes scroll-x { to { transform: translateX(-50%); } }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
