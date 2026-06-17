@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+     <!-- This makes the layout resize correctly on phones and tablets. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <!-- This is the title shown on the browser tab. -->
+  <title>Mckenna's Baked Goods</title>
+  <meta name="description" content="French-inspired bakery in Boise, Idaho serving muffins, cakes, and custom orders."/
+  >
+   <link rel="stylesheet" href="styles.css" /> 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+/* =========================
+       HEADER / NAVIGATION
+    ========================== */
+
+    /* Sticky header stays at the top while scrolling. */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(247, 241, 234, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+    /* Navigation layout: logo on the left, links on the right. */
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    /* Bakery logo styling. */
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    /* Navigation links in a row on desktop. */
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+     /* Adds padding around nav links to make them easier to click. */
+    .nav-links a {
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+    }
+      /* Hover effect when the mouse is over a nav link. */
+    .nav-links a:hover {
+      background: var(--surface-2);
+    }
+     /* =========================
+       HERO SECTION
+    ========================== */
+    .hero {
+      padding: 5rem 0 4rem;
+    }
+    /* Two-column layout for hero text and side card. */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    /* Small label above main heading */
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    /* All headings use the elegant serif font. */
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", serif;
+      line-height: 1;
+    }
+    /* Main page heading. */
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      margin-bottom: 1rem;
+      max-width: 9ch;
+    }
+    /* Supporting paragraph under the main heading. */
+    .lead {
+      max-width: 52ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Button row under hero text. */
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Base button style. */
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+
+    /* Filled main action button. */
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Darker hover effect for the main button. */
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Outlined secondary button. */
+    .btn-secondary {
+      background: var(--surface);
+    }
+
+    /* Shared card style used in several places. */
+    .hero-card,
+    .item-card,
+    .about-box,
+    .contact-box,
+    form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* Styling for the card on the right side of the hero section. */
+    .hero-card {
+      padding: 2rem;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    /* Removes bullet points from the list in the hero card. */
+    .hero-card ul {
+      list-style: none;
+    }
+
+    /* Adds spacing between each bakery item in the card. */
+    .hero-card li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-card li:last-child {
+      border-bottom: none;
+    }
+ /* =========================
+       GENERAL SECTIONS
+    ========================== */
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    /* Three cards in a row for menu items. */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .item-card {
+      padding: 1.4rem;
+    }
+
+    .item-card h3 {
+      margin-bottom: 0.7rem;
+      font-size: 1.9rem;
+    }
+
+    .item-card p {
+      color: var(--muted);
+    }
+
+    /* Two-column layout for about and contact areas. */
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .about-box,
+    .contact-box,
+    form {
+      padding: 1.5rem;
+    }
+
+    /* Contact form layout. */
+    form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    /* Makes form labels bold and easier to read. */
+    label {
+      font-weight: 600;
+    }
+
+    /* Shared styling for text boxes. */
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      font: inherit;
+    }
+
+    /* Lets the user drag the textarea taller if needed. */
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    /* Footer styling. */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      color: var(--muted);
+    }
+
+
+
+</style>
+</head>
+<body>
+    <!-- Header Start__-->
+     <header>
+        <div class="container nav">
+            <a href="#" class="logo">Mckenna's Baked Goods </a>
+            <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        </nav>
+        </div>
+     </header>
+     <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <!-- Small label above the main title -->
+          <p class="eyebrow">Home-style bakery · Boise, Idaho</p>
+
+          <!-- Main headline -->
+          <h1>Muffins and cakes</h1>
+
+          <!-- Supporting text -->
+          <p class="lead">
+            Mckenna's Baked Goods blends a soft home style feeling with comforting,
+            small-batch bakes made for brunch tables, birthdays, and everyday treats.
+          </p>
+         <!-- Main action buttons -->
+          <div class="buttons">
+            <a href="#menu" class="btn btn-primary">See the menu</a>
+            <a href="#contact" class="btn btn-secondary">Order a cake</a>
+          </div>
+        </div>
+
+        <!-- Right-side feature card -->
+        <div class="hero-card">
+          <h3>Featured today</h3>
+           <ul>
+            <li>Strawberry short cake muffins</1i>
+            <li> Lemon Poppy Seed Muffins</li>
+            
+          </ul>
+        </div>
+      </div>
+    </section> 
+     <!-- MENU SECTION -->
+    <section id="menu">
+      <div class="container">
+        <div class="section-title">
+          <h2>Signature bakes</h2>
+          <p>
+            A simple selection.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="item-card">
+            <h3>Muffins</h3>
+            <p>Strawberry short cake, lilikoi poppy seed, Cherry almond and other seasonal fruit flavors.</p>
+          </article>
+
+          <article class="item-card">
+            <h3>Cakes</h3>
+            <p>Layer cakes for birthdays, gatherings, and celebrations with elegant finishes and soft flavors.</p>
+          </article>
+
+          <article class="item-card">
+            <h3>Custom orders</h3>
+            <p>Pickup-friendly cakes and bake boxes for weekends, showers, and small events.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+     <!-- ABOUT SECTION -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="section-title">
+          <p class="eyebrow">About Mckenna's Baked Goods</p>
+          <h2>A bakery with a quiet patisserie mood.</h2>
+        </div>
+
+        <div class="about-box">
+          <p>
+            Mckenna graduated from Le Cordon Bleu in London in 2024. She is a master of French cuisine
+            and baking. Fusing French pâtisserie technique with American home-style recipes, we create bakes that are cozy to eat and polished enough for any celebration.
+          </p>
+        </div>
+      </div>
+    </section>
+ <!-- CONTACT SECTION -->
+     <section id="contact">
+      <div class="container contact-grid">
+        <form action="https://formspree.io/f/your-id-here" method="POST">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Order details</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button type="submit" class="btn btn-primary">Send inquiry</button>
+        </form>
+
+        <div class="contact-box">
+          <div class="section-title">
+            <p class="eyebrow">Contact</p>
+            <h2>Boise, Idaho</h2>
+          </div>
+          <p> Email: 
+           <p> Instagram: @mckennas.baked.goods</p>
+           <p> Phone: </p>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>   
+   <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p></p> Mckenna's Baked Goods · Home-style muffins and cakes in Boise, Idaho.</p>
+      <p> Web-design: Alec Martin, Nils Matteson</p>
+    </div>
+  </footer>
+
+  <script>
+    // Get the menu button from the page using its ID.
+    const menuBtn = document.getElementById("menuBtn");
+
+    // Get the navigation links container from the page.
+    const navLinks = document.getElementById("navLinks");
+
+    // When the menu button is clicked, toggle the "show" class.
+    // This opens or closes the mobile navigation menu.
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+    :root {
+      --bg: #f5e7d7;
+      --surface: #fcf0e2;
+      --surface-2: #efe3d6;
+      --text: #2d221c;
+      --muted: #6f5b4f;
+      --primary: #7a4d37;
+      --primary-dark: #63301a;
+      --border: rgba(71, 42, 24, 0.14);
+      --radius: 18px;
+      --shadow: 0 14px 36px rgba(77, 45, 27, 0.08);
+      --max: 1120px;
+    }
+    /* Main page styling. */
+    body {
+      font-family: "Manrope", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    /* Makes images responsive when I add them later. */
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    /* A reusable container class keeps content centered
+       and prevents it from becoming too wide on large screens. */
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+    input,
+textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #ffffff;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
