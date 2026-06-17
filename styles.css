@@ -229,12 +229,21 @@ p { text-wrap: pretty; }
 .g-item img { width: 100%; height: auto; display: block; transition: transform 600ms var(--ease-out); }
 .g-item:hover img { transform: scale(1.04); }
 
-/* ---------- How to order ---------- */
-.steps-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: clamp(1.2rem, 1rem + 2vw, 2.5rem); counter-reset: step; }
-.step { display: flex; gap: 1rem; align-items: flex-start; }
-.step-num { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--blush); color: var(--berry-deep); font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; }
-.step h3 { font-size: var(--text-h3); margin-bottom: .35rem; }
-.step p { color: var(--ink-soft); margin: 0; font-size: .98rem; }
+/* ---------- How to order (connected step flow) ---------- */
+.steps-flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.5rem, 1rem + 2vw, 3rem); position: relative; }
+/* hairline threading through the number nodes (desktop) */
+.steps-flow::before { content: ""; position: absolute; left: 12.5%; right: 12.5%; top: 30px; height: 1.5px; background: var(--line); }
+.step { position: relative; display: flex; flex-direction: column; gap: 1.1rem; }
+.step-num {
+  width: 60px; height: 60px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--surface-2); border: 1.5px solid var(--berry); color: var(--berry-deep);
+  font-family: var(--font-display); font-weight: 500; font-size: 1.7rem; position: relative; z-index: 1;
+  transition: background var(--dur) var(--ease-out), color var(--dur), transform var(--dur) var(--ease-out);
+}
+.step:hover .step-num { background: var(--berry-deep); color: #fff; transform: translateY(-3px); }
+.step-body { display: flex; flex-direction: column; gap: .4rem; }
+.step h3 { font-size: var(--text-h3); min-height: 2.1em; }
+.step p { color: var(--ink-soft); margin: 0; font-size: .98rem; max-width: 32ch; }
 
 /* ---------- Order form ---------- */
 .order-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: start; }
@@ -331,6 +340,8 @@ textarea { resize: vertical; min-height: 130px; }
   .story-figure { order: -1; max-width: 440px; }
   .hero-figure { max-width: 520px; }
   .gallery-grid { column-count: 2; }
+  .steps-flow { grid-template-columns: repeat(2, 1fr); }
+  .steps-flow::before { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -345,6 +356,10 @@ textarea { resize: vertical; min-height: 130px; }
   .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .field-row { grid-template-columns: 1fr; gap: 1.1rem; }
   .build-row { grid-template-columns: 1fr; gap: .35rem; }
+  .steps-flow { grid-template-columns: 1fr; gap: 1.3rem; }
+  .step { flex-direction: row; align-items: flex-start; gap: 1rem; }
+  .step-num { width: 50px; height: 50px; font-size: 1.4rem; }
+  .step h3 { min-height: 0; }
 }
 
 @media (max-width: 480px) {
