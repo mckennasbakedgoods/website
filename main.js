@@ -45,15 +45,17 @@
   }
 
   var DELIVERY_FEE = 10;
+  var GF_SURCHARGE = 2;
   function isDelivery() {
     var r = document.querySelector('input[name="fulfillment"]:checked');
     return !!r && /delivery/i.test(r.value);
   }
+  function linePrice(l) { return l.price + (l.gf ? GF_SURCHARGE : 0); }
   function summary() {
     var out = [];
     lines.forEach(function (l) {
       var nm = (l.spec ? l.name + " (" + l.spec + ")" : l.name) + (l.gf ? " [gluten-free]" : "");
-      out.push(nm + " - " + l.qty + " - " + money(l.price));
+      out.push(nm + " - " + l.qty + " - " + money(linePrice(l)));
     });
     if (lines.size > 0 && isDelivery()) out.push("Local delivery - " + money(DELIVERY_FEE));
     return out.join("\n");
@@ -61,7 +63,7 @@
 
   function updateMeta() {
     var n = lines.size, itemsTotal = 0;
-    lines.forEach(function (l) { itemsTotal += l.price; });
+    lines.forEach(function (l) { itemsTotal += linePrice(l); });
     var deliv = (n > 0 && isDelivery()) ? DELIVERY_FEE : 0;
     var total = itemsTotal + deliv;
     if (emptyEl) emptyEl.hidden = n > 0;
@@ -94,19 +96,21 @@
     var gf = document.createElement("button");
     gf.type = "button"; gf.className = "bi-gf";
     gf.setAttribute("aria-pressed", l.gf ? "true" : "false");
-    gf.textContent = (l.gf ? "✓ " : "+ ") + "gluten-free";
-    gf.setAttribute("aria-label", (l.gf ? "Remove gluten-free from " : "Make gluten-free: ") + l.name + ", " + l.qty);
+    var gfLabel = function (on) { return on ? "✓ gluten-free" : "+ gluten-free (+$2)"; };
+    gf.textContent = gfLabel(l.gf);
+    gf.setAttribute("aria-label", (l.gf ? "Remove gluten-free from " : "Make gluten-free for $2 more: ") + l.name + ", " + l.qty);
+    var qty = document.createElement("span"); qty.className = "bi-qty"; qty.textContent = l.qty;
+    var pr = document.createElement("span"); pr.className = "bi-price"; pr.textContent = money(linePrice(l));
     gf.addEventListener("click", function () {
       var cur = lines.get(id); if (!cur) return;
       cur.gf = !cur.gf;
       gf.setAttribute("aria-pressed", cur.gf ? "true" : "false");
-      gf.textContent = (cur.gf ? "✓ " : "+ ") + "gluten-free";
+      gf.textContent = gfLabel(cur.gf);
+      pr.textContent = money(linePrice(cur));
       updateMeta();
-      announce(cur.name + (cur.gf ? " set to gluten-free." : " no longer gluten-free."));
+      announce(cur.name + (cur.gf ? " set to gluten-free, plus $2." : " no longer gluten-free."));
     });
     name.appendChild(gf);
-    var qty = document.createElement("span"); qty.className = "bi-qty"; qty.textContent = l.qty;
-    var pr = document.createElement("span"); pr.className = "bi-price"; pr.textContent = money(l.price);
     var rm = document.createElement("button");
     rm.type = "button"; rm.className = "bi-rm"; rm.setAttribute("aria-label", "Remove " + l.name);
     rm.innerHTML = '<svg class="ic"><use href="#i-x"></use></svg>';
