@@ -1,75 +1,73 @@
-# Design
+# Design — "Loud Little Bakery" (Bold & Alive)
 
-Visual system for **Mckenna's Baked Goods** — a warm, homey, modern bakery site. Identity-preserving: derived from her real Instagram brand (badge logo, line-art motifs, dusty-rose + gold accents, warm photography), elevated to feel intentional and specific to her rather than templated.
+Total reset. Reference-anchored to **Doe** (doe.co.nz) and **Dominique Ansel**:
+a confident, joyful, color-forward bakery brand. The opposite of the timid
+warm-paper-and-serif version that got (rightly) rejected. Big saturated color
+fields, one expressive script wordmark, the bakes shot as round graphic
+"stickers," hand-drawn doodles everywhere, loud condensed display type, playful
+bouncy motion. Premium because it commits — not because it whispers.
 
-## Theme
+## Vibe
 
-Warm editorial-lifestyle. A calibrated near-white canvas (not flat beige) lets warm food photography and a strawberry-berry accent carry the warmth. Cocoa-ink type, generous space, her own hand-drawn line-art and sparkle motifs as signature touches. Mobile-first; design is the product.
+Warm, joyful, a little cheeky, unmistakably hers. Boutique, NOT childish — the
+restraint is in the *system* (one type trio, a tight color set), the loudness is
+in the *scale and color*. Instagram-native, mobile-first.
 
-## Color
-
-OKLCH throughout. Strategy: **restrained-warm canvas + one committed berry accent** (pulled from her red-velvet / strawberry / raspberry bakes). Dusty rose and antique gold are her secondary brand accents, used sparingly.
+## Color (OKLCH) — saturated, color-blocked
 
 ```css
---bg:         oklch(98% 0.008 75);    /* warm near-white canvas (NOT orange cream) */
---surface:    oklch(99.5% 0.003 80);  /* cards, form fields */
---surface-2:  oklch(95.5% 0.014 72);  /* oat section bg for rhythm */
---ink:        oklch(26% 0.03 45);     /* warm cocoa near-black — headings + body */
---ink-soft:   oklch(43% 0.025 48);    /* secondary text + placeholders (≥4.5:1 on bg) */
---berry:      oklch(52% 0.21 22);     /* strawberry red — links, accents */
---berry-deep: oklch(46% 0.19 22);     /* CTA fills (white text ≥4.5:1), hover */
---blush:      oklch(91% 0.035 18);    /* soft pink fills / badges */
---gold:       oklch(70% 0.085 78);    /* antique gold — sparkle motif only, tiny */
---line:       oklch(87% 0.012 60);    /* hairline borders */
+--berry:      oklch(55% 0.16 18);   /* strawberry — primary hero field */
+--berry-deep: oklch(42% 0.15 18);   /* deep raspberry — text on light, dark CTAs */
+--cream:      oklch(96% 0.025 92);  /* warm cream — breathing-room sections */
+--butter:     oklch(88% 0.14 92);   /* butter yellow — pop blocks, CTAs */
+--sage:       oklch(83% 0.06 155);  /* soft pistachio — accent block */
+--blush:      oklch(91% 0.045 18);  /* light pink — soft blocks/chips */
+--ink:        oklch(24% 0.03 38);   /* warm near-black — text on light, ink blocks */
+--line:       oklch(86% 0.02 40);
 ```
 
-- Body text is `--ink` / `--ink-soft` on `--bg` — never light gray on tint.
-- White text only on `--berry-deep` or darker. On `--berry` use `--ink` or white-with-care.
-- Warmth comes from photography + accent + ink, not from a saturated background.
+Sections **color-block**: berry → ink marquee → cream → blush → cream → sage →
+ink → berry. Joyful but cohesive (shared warm hues). White/cream text only on
+berry/ink/berry-deep; dark ink on cream/butter/sage/blush.
 
-## Typography
+## Type (3 voices, loud)
 
-Two families, paired on a contrast axis (serif display + geometric sans body). Her script charm comes from **Fraunces italic**, not a third font.
+- **Display (LOUD):** Anton — ultra-bold condensed uppercase. Giant headlines,
+  taglines, big numbers, the marquee. This is the volume.
+- **Wordmark / warm accent:** Kaushan Script — "Mckenna's" + a few hand-signed
+  accent words ("just for you", "the good stuff"). The warmth + life.
+- **Body / UI:** Hanken Grotesk 400–800 — clean, friendly, readable. The calm.
 
-- **Display / headings:** Fraunces (variable; opsz, soft, wght). Soft optical character, warm-modern. Weights 400–600.
-- **Section accent labels** ("Muffins", "Cakes", "sweet things"): Fraunces *italic* — reads near-script, echoes her hand-lettered menu.
-- **Body / UI:** Manrope 400/500/600/700.
-- Display clamp ceiling ≤ 6rem. Letter-spacing floor ≥ -0.04em. `text-wrap: balance` on h1–h3, `pretty` on prose. Body line length 60–72ch.
+## Signature details — bespoke
 
-## Iconography & motifs (her brand language, rebuilt as SVG)
+- **Hand-drawn doodles** (custom SVG): sparkle, heart, squiggle-underline,
+  loop-arrow, starburst, swirl, flower-asterisk — scattered as positioned accents
+  in brand colors. Echoes her IG line-art. This is where the "life" comes from.
+- **Round photo stickers:** her bakes in circle/squircle crops, slightly rotated,
+  on the color fields, with little tags — photos as graphic objects, not framed.
+- Bespoke single-stroke UI icons (plus, check, arrow, instagram, pin).
 
-- Circular badge logo: "MCKENNA'S · BAKED GOODS" around a script M + heart.
-- Line-art: whisk-in-hand, cupcake, cake-slice (delicate single-stroke).
-- 4-point sparkle accents (gold), used sparingly near headings.
-- Hand-drawn swash underlines beneath script section labels.
+## Sections
 
-## Components
+1. **Hero** — full berry field, doodles, giant Anton headline + Kaushan accent,
+   row of round bake-stickers, bold CTAs.
+2. **Marquee** — ink strip, big Anton running text.
+3. **The bakes** — cream field. Bold muffin rows (tap to add) + a chunky
+   "build a 6″ cake" card; a sticky bold **"YOUR BOX"** panel fills live with
+   your picks + total + the inquiry form (Formsubmit → mckennasbakedgoods@gmail.com).
+4. **Gallery** — playful scrapbook collage (rounded rects + circles + doodles).
+5. **Story** — sage/butter block, portrait in a blob frame, Anton + Kaushan signature.
+6. **How it works** — big Anton numbers with doodle arrows.
+7. **Footer** — berry field, huge "LET'S BAKE", CTA, contact.
 
-- **Header:** sticky, translucent; SVG badge + nav (Menu · About · How to Order) + berry "Request an order" CTA. Real, accessible mobile hamburger → slide-down panel (focus-trapped, ESC to close).
-- **Hero:** photo-led, asymmetric (not centered-generic). Headline (Fraunces), warm sub, primary CTA + "See the menu." Hero image eager + `fetchpriority=high`.
-- **Story / Meet Mckenna:** her Le Cordon Bleu story, first-person voice, portrait/photo.
-- **Menu:** real menu. Muffins list (6/12 pricing), build-your-own 6″ cakes (base/filling/frosting, $60). Line-art icons + Fraunces-italic labels. Editorial layout, NOT a 3-card grid.
-- **Gallery:** editorial/bento image grid from her photography.
-- **How to order:** the real 4 steps — a genuine sequence, so numbered markers are earned. Her dusty-rose numbered style.
-- **Order form:** inquiry form → Formsubmit → mckennasbakedgoods@gmail.com. Fields: name, email, phone (opt), what you'd like, date needed. Honeypot + table template. Venmo/Apple Pay + $10 local-delivery note. Boise, ID.
-- **Footer:** badge, Instagram (@mckennas.baked.goods), email, credit, Boise ID.
+## Motion (playful, reduced-motion safe)
 
-## Layout
-
-- Mobile-first. Container `min(92%, 1120px)`.
-- Vary section spacing for rhythm; alternate `--bg` / `--surface-2`.
-- Flex for 1D, Grid for 2D. Responsive grids: `repeat(auto-fit, minmax(280px, 1fr))`.
-- Semantic z-index scale (header < mobile-panel < toast).
-
-## Motion
-
-Gentle, warm, intentional — never the uniform fade-reflex.
-- Scroll-reveal: content visible by default, transitions *enhance* (no visibility gated on JS).
-- Hero: subtle settle on load; staggered menu rows; CTA hover lift.
-- Sparkles: faint twinkle (CSS), respects reduced motion.
-- Easing: ease-out-expo/quint. No bounce.
-- Full `prefers-reduced-motion: reduce` alternative (crossfade/instant).
+Things bounce/slide/pop in, cards wobble on hover, doodles gently float & twinkle,
+buttons squish, marquee scrolls. Full `prefers-reduced-motion` alternative.
+Compositor-friendly only.
 
 ## Accessibility
 
-WCAG 2.2 AA. Contrast ≥4.5:1 body. Keyboard-navigable nav + form, visible focus rings, real `<label>`s. Touch targets ≥44px. Reduced-motion honored everywhere.
+WCAG 2.2 AA. White/cream text only on dark-enough fields (berry ≤55% L, ink);
+dark ink on light fields. Real `<label>`s, visible focus, ≥44px touch targets,
+keyboard-operable order + form, reduced-motion honored.

@@ -3,197 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Mckenna's Baked Goods | Small-batch muffins & custom cakes in Boise, Idaho</title>
-  <meta name="description" content="Le Cordon Bleu-trained home bakery in Boise, Idaho. Small-batch muffins and build-your-own celebration cakes, baked to order. Pick your flavors and send an order." />
+  <title>Mckenna's Baked Goods · muffins &amp; build-your-own cakes in Boise</title>
+  <meta name="description" content="A home bakery in Boise, Idaho. Homemade muffins by the half-dozen and build-your-own birthday cakes. Build your box, send it over, and I'll confirm." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mckenna's Baked Goods" />
-  <meta property="og:description" content="Small-batch muffins & custom cakes, baked to order in Boise, Idaho." />
-  <meta property="og:image" content="https://mckennasbakedgoods.com/images/hero.jpg" />
-  <meta property="og:url" content="https://mckennasbakedgoods.com/" />
-  <meta name="theme-color" content="#f4ece0" />
+  <meta property="og:description" content="Homemade muffins & build-your-own cakes, made to order in Boise, Idaho." />
+  <meta property="og:image" content="images/hero.jpg" />
+  <meta name="theme-color" content="#a23b46" />
   <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,440;0,560;1,520&family=Manrope:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Kaushan+Script&family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#menu">Skip to the menu</a>
+  <a class="skip-link" href="#bakes">Skip to the menu</a>
 
+  <!-- doodles + icons -->
   <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><defs>
-    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 6"/></symbol>
-    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="d-spark" viewBox="0 0 24 24"><path d="M12 1c.7 6 4.3 9.6 11 11-6.7 1.4-10.3 5-11 11-.7-6-4.3-9.6-11-11C7.7 10.6 11.3 7 12 1Z" fill="currentColor"/></symbol>
+    <symbol id="d-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20C4.5 14 3.6 8.8 6.8 6.2c2.2-1.8 4.4-.5 5.2 1.2.8-1.7 3-3 5.2-1.2 3.2 2.6 2.3 7.8-5.2 13.8Z"/></symbol>
+    <symbol id="d-squiggle" viewBox="0 0 80 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M2 11C10 2 18 2 26 9s16 7 24 0 18-7 26 0"/></symbol>
+    <symbol id="d-loop" viewBox="0 0 40 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6c14-7 30-3 31 9 .6 7-8 11-12 6-3-4 2-10 8-7 7 3.5 7 12 4 16"/><path d="M34 30l1.4-6 4.6 3.4"/></symbol>
+    <symbol id="d-burst" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3.5 3.5M15.5 15.5 19 19M19 5l-3.5 3.5M8.5 15.5 5 19"/></symbol>
+    <symbol id="d-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.5 1.3 6.5L12 17.9 6.1 20.3l1.3-6.5L2.5 9.3l6.6-.8Z"/></symbol>
+    <symbol id="d-swirl" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M16 16c0-4 5-4 5 0s-6 6-9 1-1-12 7-12 11 9 7 16"/></symbol>
+    <symbol id="d-strawberry" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.5c-3.8 0-6.6-2.9-6.6-6.6 0-2.7 3-4.7 6.6-4.7s6.6 2 6.6 4.7c0 3.7-2.8 6.6-6.6 6.6Z"/><path d="M7.5 5.2c1.2-.9 2.9-1.1 4.5-.5 1.6-.6 3.3-.4 4.5.5-.9 1.2-2.4 1.8-3.9 1.5.2.5.3 1.1.3 1.7h-1.8c0-.6.1-1.2.3-1.7-1.5.3-3-.3-3.9-1.5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 6v12M6 12h12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.3 7-11.5A7 7 0 0 0 5 9.5C5 14.7 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></symbol>
   </defs></svg>
 
-  <!-- ===== top nav ===== -->
-  <header class="nav">
-    <div class="nav-inner container">
-      <a class="brand" href="#top" aria-label="Mckenna's Baked Goods, home">
-        <img src="images/logo.png" alt="" width="320" height="320" class="brand-mark" />
-        <span class="brand-name">Mckenna's <em>Baked Goods</em></span>
+  <!-- header -->
+  <header class="nav" id="top">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Mckenna's Baked Goods home">
+        <img class="brand-logo" src="images/logo.png" alt="" width="120" height="120" />
+        <span class="brand-text">
+          <span class="brand-word">Mckenna's</span>
+          <span class="brand-tag">Homemade · Boise</span>
+        </span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#menu">Muffins</a><a href="#cakes">Cakes</a><a href="#gallery">Gallery</a><a href="#about">About</a>
+        <a href="#bakes">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#story">Story</a>
       </nav>
-      <a href="#order" class="order-btn" id="orderBtn">
-        <svg class="ic"><use href="#i-bag"/></svg> Your order <span class="order-badge" id="orderBadge">0</span>
+      <a class="box-btn" href="#order" id="boxBtn">
+        My box <span class="box-count" id="boxCount">0</span>
       </a>
     </div>
   </header>
 
-  <main id="top">
-    <!-- ===== hero ===== -->
-    <section class="hero container">
-      <div class="hero-text">
-        <p class="eyebrow">Le Cordon Bleu trained · Boise, Idaho</p>
-        <h1>Muffins and custom cakes, baked to order.</h1>
-        <p class="hero-lead">Small-batch baking out of my kitchen in Boise. Pick your flavors below and they'll add to your order, then I'll reach out to sort the details.</p>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-kicker"><svg class="ic"><use href="#d-spark"/></svg> Now taking orders!</p>
+        <h1 class="hero-h">
+          <span class="loud">BAKED FRESH,</span>
+          <span class="script">just for you.</span>
+        </h1>
+        <p class="hero-lead">Muffins by the half-dozen and build-your-own birthday cakes, made fresh in my Boise kitchen. I went to pastry school in London, but everything here is homemade.</p>
         <div class="hero-cta">
-          <a href="#menu" class="btn">See the menu <svg class="ic"><use href="#i-arrow"/></svg></a>
-          <a href="#about" class="btn-text">More about me</a>
+          <a href="#order" class="btn btn-ink">Build your box <svg class="ic"><use href="#i-arrow"/></svg></a>
+          <a href="#bakes" class="btn btn-ghost">See the menu</a>
         </div>
-      </div>
-      <figure class="hero-photo">
-        <span class="tape tape-tl"></span><span class="pin"></span>
-        <img src="images/hero.jpg" alt="A French vanilla layer cake with strawberry filling and a glossy strawberry-glazed top, one slice cut to show the layers." width="1122" height="1199" fetchpriority="high" decoding="async" />
-      </figure>
-    </section>
-
-    <!-- ===== muffins ===== -->
-    <section class="section" id="menu">
-      <div class="section-head">
-        <h2>Muffins</h2>
-        <p>By the half or full dozen. Tap to add to your order.</p>
-      </div>
-      <div class="muffin-grid">
-        <article class="muffin" style="--accent:oklch(52% 0.2 18)">
-          <div class="m-top"><h3>Cherry Almond</h3><span class="m-price">$18 <i>/</i> $35</span></div>
-          <div class="m-add"><button class="add" data-flavor="Cherry Almond" data-qty="½ dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>½ dozen</button><button class="add" data-flavor="Cherry Almond" data-qty="dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>dozen</button></div>
-        </article>
-        <article class="muffin" style="--accent:oklch(46% 0.07 62)">
-          <div class="m-top"><h3>Coffee Cake</h3><span class="m-price">$15 <i>/</i> $30</span></div>
-          <div class="m-add"><button class="add" data-flavor="Coffee Cake" data-qty="½ dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>½ dozen</button><button class="add" data-flavor="Coffee Cake" data-qty="dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>dozen</button></div>
-        </article>
-        <article class="muffin" style="--accent:oklch(66% 0.13 88)">
-          <div class="m-top"><h3>Lilikoi Poppy Seed</h3><span class="m-price">$15 <i>/</i> $30</span></div>
-          <div class="m-add"><button class="add" data-flavor="Lilikoi Poppy Seed" data-qty="½ dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>½ dozen</button><button class="add" data-flavor="Lilikoi Poppy Seed" data-qty="dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>dozen</button></div>
-        </article>
-        <article class="muffin" style="--accent:oklch(64% 0.16 50)">
-          <div class="m-top"><h3>Orange Cranberry</h3><span class="m-price">$15 <i>/</i> $30</span></div>
-          <div class="m-add"><button class="add" data-flavor="Orange Cranberry" data-qty="½ dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>½ dozen</button><button class="add" data-flavor="Orange Cranberry" data-qty="dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>dozen</button></div>
-        </article>
-        <article class="muffin" style="--accent:oklch(60% 0.18 32)">
-          <div class="m-top"><h3>POG <small>passion, orange, guava</small></h3><span class="m-price">$18 <i>/</i> $35</span></div>
-          <div class="m-add"><button class="add" data-flavor="POG" data-qty="½ dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>½ dozen</button><button class="add" data-flavor="POG" data-qty="dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>dozen</button></div>
-        </article>
-        <article class="muffin" style="--accent:oklch(52% 0.13 268)">
-          <div class="m-top"><h3>Blueberry Lemon</h3><span class="m-price">$15 <i>/</i> $30</span></div>
-          <div class="m-add"><button class="add" data-flavor="Blueberry Lemon" data-qty="½ dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>½ dozen</button><button class="add" data-flavor="Blueberry Lemon" data-qty="dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>dozen</button></div>
-        </article>
-        <article class="muffin" style="--accent:oklch(55% 0.19 8)">
-          <div class="m-top"><h3>Raspberry Lemon</h3><span class="m-price">$15 <i>/</i> $30</span></div>
-          <div class="m-add"><button class="add" data-flavor="Raspberry Lemon" data-qty="½ dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>½ dozen</button><button class="add" data-flavor="Raspberry Lemon" data-qty="dozen" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>dozen</button></div>
-        </article>
+        <ul class="hero-stickers" aria-label="A few of the bakes">
+          <li class="sticker st-1"><img src="images/hero.jpg" alt="A vanilla layer cake with a glossy strawberry-glazed top." width="600" height="600" fetchpriority="high" decoding="async" /><span class="st-tag">cake of the week</span></li>
+          <li class="sticker st-2"><img src="images/gallery-2.jpg" alt="A strawberry layer cake with whipped rosettes and fresh strawberries." width="600" height="600" loading="eager" decoding="async" /><span class="st-tag">strawberries &amp; cream</span></li>
+          <li class="sticker st-3"><img src="images/gallery-6.jpg" alt="A platter piled with glazed streusel muffins." width="600" height="600" loading="eager" decoding="async" /><span class="st-tag">streusel muffins</span></li>
+        </ul>
       </div>
     </section>
 
-    <!-- ===== cakes ===== -->
-    <section class="section section-warm" id="cakes">
-      <div class="cake-wrap container-narrow">
-        <div class="section-head"><h2>Custom cakes</h2><p>6-inch round, serves about 8. $60. Build yours and add it to your order.</p></div>
-        <div class="cake-build">
-          <div class="flap"><span class="flap-label">Base</span><div class="chips" role="group" aria-label="Cake base"><button class="chip" data-group="base" data-val="French Vanilla" aria-pressed="false">French Vanilla</button><button class="chip" data-group="base" data-val="Chocolate" aria-pressed="false">Chocolate</button></div></div>
-          <div class="flap"><span class="flap-label">Filling</span><div class="chips" role="group" aria-label="Cake filling"><button class="chip" data-group="filling" data-val="Raspberry" aria-pressed="false">Raspberry</button><button class="chip" data-group="filling" data-val="Strawberry" aria-pressed="false">Strawberry</button><button class="chip" data-group="filling" data-val="Fudge" aria-pressed="false">Fudge</button></div></div>
-          <div class="flap"><span class="flap-label">Frosting</span><div class="chips" role="group" aria-label="Cake frosting"><button class="chip" data-group="frosting" data-val="Vanilla" aria-pressed="false">Vanilla</button><button class="chip" data-group="frosting" data-val="Chocolate" aria-pressed="false">Chocolate</button></div></div>
-          <button class="btn cake-add" id="cakeAdd" disabled>Add this cake <svg class="ic"><use href="#i-plus"/></svg></button>
-          <p class="cake-readout" id="cakePreview">Pick a base, filling, and frosting.</p>
-        </div>
+    <!-- MARQUEE -->
+    <div class="marquee marquee--two" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Fresh muffins</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>real butter</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>baked to order</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>small batches</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>Boise made</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>made with love</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>Fresh muffins</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>real butter</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>baked to order</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>small batches</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>Boise made</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>made with love</span><svg class="mq-spk"><use href="#d-spark"/></svg>
       </div>
-    </section>
-
-    <!-- ===== gallery ===== -->
-    <section class="section" id="gallery">
-      <div class="section-head"><h2>Recent bakes</h2></div>
-      <div class="corkboard">
-        <figure class="snap" style="--tilt:-2deg"><span class="tape tape-tl"></span><img src="images/gallery-2.jpg" alt="Strawberry-drip celebration cake with whipped rosettes and fresh strawberries." width="1053" height="791" loading="lazy" decoding="async" /></figure>
-        <figure class="snap" style="--tilt:1.6deg"><span class="pin"></span><img src="images/gallery-1.jpg" alt="A kraft box of streusel muffins held over a sunlit park." width="900" height="1200" loading="lazy" decoding="async" /></figure>
-        <figure class="snap" style="--tilt:-1deg"><span class="tape tape-tr"></span><img src="images/gallery-5.jpg" alt="A charlotte cake wrapped in ladyfingers with two gold candles." width="900" height="1200" loading="lazy" decoding="async" /></figure>
-        <figure class="snap" style="--tilt:2.2deg"><span class="pin"></span><img src="images/gallery-3.jpg" alt="Three glazed streusel muffins on a white plate outdoors." width="900" height="1200" loading="lazy" decoding="async" /></figure>
-        <figure class="snap" style="--tilt:-1.6deg"><span class="tape tape-tl"></span><img src="images/gallery-4.jpg" alt="A buttercream cake with a strawberry-glazed top and red velvet crumb base." width="1000" height="1068" loading="lazy" decoding="async" /></figure>
-        <figure class="snap" style="--tilt:1.2deg"><span class="pin"></span><img src="images/gallery-6.jpg" alt="A platter piled with glazed streusel muffins held outdoors." width="900" height="1200" loading="lazy" decoding="async" /></figure>
+      <div class="marquee-track rev">
+        <span>birthday cakes</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>build your box</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>half-dozen or dozen</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>London trained</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>order anytime</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>homemade</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>birthday cakes</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>build your box</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>half-dozen or dozen</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>London trained</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
+        <span>order anytime</span><svg class="mq-spk"><use href="#d-spark"/></svg>
+        <span>homemade</span><svg class="mq-spk"><use href="#d-strawberry"/></svg>
       </div>
-    </section>
+    </div>
 
-    <!-- ===== about ===== -->
-    <section class="section section-warm" id="about">
-      <div class="about container-narrow">
-        <figure class="snap polaroid" style="--tilt:-2deg"><span class="pin"></span><img src="images/story.jpg" alt="Mckenna, the baker, outdoors on a sunny street." width="1080" height="1440" loading="lazy" decoding="async" /></figure>
-        <div class="about-text">
-          <h2>Hi, I'm Mckenna</h2>
-          <p>I trained at Le Cordon Bleu in London and now bake out of my kitchen here in Boise. Everything is small-batch and made the slow way, with real butter and good fruit.</p>
-          <p>Whether you want a box of muffins for the weekend or a cake for something you're celebrating, I'd love to make it for you.</p>
-          <a href="https://www.instagram.com/mckennas.baked.goods/" class="btn-text" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg> @mckennas.baked.goods</a>
-        </div>
-      </div>
-    </section>
+    <!-- BAKES + ORDER -->
+    <section class="bakes edge-scallop" id="bakes">
+      <div class="bakes-grid">
+        <div class="bakes-main">
+          <header class="sec-head">
+            <p class="sec-script">the menu</p>
+            <h2 class="sec-loud">MUFFINS,<br/>BY THE DOZEN</h2>
+            <p class="sec-note">Tap to add to your box. Get a half-dozen or a full dozen.</p>
+          </header>
 
-    <!-- ===== order ===== -->
-    <section class="section" id="order">
-      <div class="order container-narrow">
-        <div class="section-head"><h2>Your order</h2><p>Add muffins or a cake above, then send it over. No payment until I confirm the details with you.</p></div>
-        <div class="order-grid">
-          <div class="order-list-card">
-            <h3>What you're getting</h3>
-            <ul class="order-list" id="ticketLines"></ul>
-            <p class="order-empty" id="orderEmpty">Nothing added yet. Tap a muffin or build a cake above and it'll show up here.</p>
-          </div>
-          <form class="order-form" action="https://formsubmit.co/mckennasbakedgoods@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New order request for Mckenna's Baked Goods" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="order" id="orderHidden" />
-            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Your name" /></div>
-            <div class="field-row">
-              <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" /></div>
-              <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(208) 555-0199" /></div>
+          <ul class="muffins">
+            <li class="muf"><span class="muf-name">Cherry Almond <span class="muf-badge">most loved</span></span><span class="muf-price">$18 / $35</span><span class="muf-add"><button class="add" data-flavor="Cherry Almond" data-qty="½ dozen" data-price="18" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Half</button><button class="add" data-flavor="Cherry Almond" data-qty="Dozen" data-price="35" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Dozen</button></span></li>
+            <li class="muf"><span class="muf-name">Coffee Cake</span><span class="muf-price">$15 / $30</span><span class="muf-add"><button class="add" data-flavor="Coffee Cake" data-qty="½ dozen" data-price="15" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Half</button><button class="add" data-flavor="Coffee Cake" data-qty="Dozen" data-price="30" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Dozen</button></span></li>
+            <li class="muf"><span class="muf-name">Lilikoi Poppy Seed</span><span class="muf-price">$15 / $30</span><span class="muf-add"><button class="add" data-flavor="Lilikoi Poppy Seed" data-qty="½ dozen" data-price="15" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Half</button><button class="add" data-flavor="Lilikoi Poppy Seed" data-qty="Dozen" data-price="30" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Dozen</button></span></li>
+            <li class="muf"><span class="muf-name">Orange Cranberry</span><span class="muf-price">$15 / $30</span><span class="muf-add"><button class="add" data-flavor="Orange Cranberry" data-qty="½ dozen" data-price="15" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Half</button><button class="add" data-flavor="Orange Cranberry" data-qty="Dozen" data-price="30" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Dozen</button></span></li>
+            <li class="muf"><span class="muf-name">POG <em>passion · orange · guava</em></span><span class="muf-price">$18 / $35</span><span class="muf-add"><button class="add" data-flavor="POG" data-qty="½ dozen" data-price="18" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Half</button><button class="add" data-flavor="POG" data-qty="Dozen" data-price="35" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Dozen</button></span></li>
+            <li class="muf"><span class="muf-name">Blueberry Lemon</span><span class="muf-price">$15 / $30</span><span class="muf-add"><button class="add" data-flavor="Blueberry Lemon" data-qty="½ dozen" data-price="15" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Half</button><button class="add" data-flavor="Blueberry Lemon" data-qty="Dozen" data-price="30" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Dozen</button></span></li>
+            <li class="muf"><span class="muf-name">Raspberry Lemon</span><span class="muf-price">$15 / $30</span><span class="muf-add"><button class="add" data-flavor="Raspberry Lemon" data-qty="½ dozen" data-price="15" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Half</button><button class="add" data-flavor="Raspberry Lemon" data-qty="Dozen" data-price="30" aria-pressed="false"><svg class="ic ap"><use href="#i-plus"/></svg><svg class="ic ac"><use href="#i-check"/></svg>Dozen</button></span></li>
+          </ul>
+
+          <!-- build a cake -->
+          <div class="cake" id="cake">
+            <header class="sec-head">
+              <p class="sec-script">birthday cakes</p>
+              <h2 class="sec-loud sec-loud-sm">BUILD A 6″ CAKE</h2>
+              <p class="sec-note">$60, serves about 8. Pick one from each row.</p>
+            </header>
+            <div class="cake-rows">
+              <div class="cake-row"><span class="cake-label">Base</span><div class="chips" role="group" aria-label="Cake base"><button class="chip" data-group="base" data-val="French Vanilla" aria-pressed="false">French Vanilla</button><button class="chip" data-group="base" data-val="Chocolate" aria-pressed="false">Chocolate</button></div></div>
+              <div class="cake-row"><span class="cake-label">Filling</span><div class="chips" role="group" aria-label="Cake filling"><button class="chip" data-group="filling" data-val="Raspberry" aria-pressed="false">Raspberry</button><button class="chip" data-group="filling" data-val="Strawberry" aria-pressed="false">Strawberry</button><button class="chip" data-group="filling" data-val="Fudge" aria-pressed="false">Fudge</button></div></div>
+              <div class="cake-row"><span class="cake-label">Frosting</span><div class="chips" role="group" aria-label="Cake frosting"><button class="chip" data-group="frosting" data-val="Vanilla" aria-pressed="false">Vanilla</button><button class="chip" data-group="frosting" data-val="Chocolate" aria-pressed="false">Chocolate</button></div></div>
             </div>
-            <div class="field"><label for="f-date">Date you need it</label><input id="f-date" name="date_needed" type="date" /></div>
-            <div class="field"><label for="f-notes">Anything else? <span class="opt">(allergies, a message on the cake, pickup vs delivery)</span></label><textarea id="f-notes" name="notes" rows="3" placeholder="Optional"></textarea></div>
-            <button type="submit" class="btn btn-block"><span class="btn-spinner" aria-hidden="true"></span> Send order <svg class="ic"><use href="#i-arrow"/></svg></button>
-            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-            <p class="form-note">$10 delivery in Boise, or pick up for free. Venmo or Apple Pay.</p>
-          </form>
+            <div class="cake-foot">
+              <button class="btn btn-berry cake-add" id="cakeAdd" disabled>Add this cake <svg class="ic"><use href="#i-plus"/></svg></button>
+              <p class="cake-readout" id="cakePreview">Pick a base, filling, and frosting.</p>
+            </div>
+            <p class="cake-custom"><svg class="ic"><use href="#d-heart"/></svg> Want a bigger cake or something custom? Just tell me in the notes when you send your box.</p>
+          </div>
         </div>
+
+        <!-- YOUR BOX -->
+        <aside class="box" id="order" aria-label="Your order box">
+          <div class="box-card">
+            <div class="box-head">
+              <svg class="doodle dood-box" aria-hidden="true"><use href="#d-heart"/></svg>
+              <p class="box-kicker">your box</p>
+              <h3 class="box-title" id="boxTitle">Empty<br/>for now</h3>
+            </div>
+            <ul class="box-items" id="boxItems"></ul>
+            <p class="box-empty" id="boxEmpty"><svg class="box-empty-art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4-9-4Z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8"/></svg>Tap a muffin or build a cake to add it to your order.</p>
+            <p class="sr-only" id="boxAnnounce" role="status" aria-live="polite"></p>
+            <div class="box-total">
+              <span>Estimated total</span>
+              <span class="box-amount" id="boxTotal">$0.00</span>
+            </div>
+
+            <form class="box-form" id="orderForm" action="https://formsubmit.co/mckennasbakedgoods@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="New order, Mckenna's Baked Goods" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="order" id="orderHidden" />
+              <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="your name" />
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+              <div class="box-2">
+                <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="optional" /></div>
+                <div><label for="f-date">Date needed <small>(2+ days)</small></label><input id="f-date" name="date_needed" type="date" /></div>
+              </div>
+              <label for="f-notes">Anything else?</label>
+              <textarea id="f-notes" name="notes" rows="2" placeholder="allergies, a message on the cake, pickup or delivery"></textarea>
+              <button type="submit" class="btn btn-berry box-send"><span class="spinner" aria-hidden="true"></span> Send my order <svg class="ic"><use href="#i-arrow"/></svg></button>
+              <p class="box-fine">Free pickup in Boise or $10 local delivery. I reply within a day, and you don't pay until I confirm your order.</p>
+              <p class="box-status" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </aside>
       </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery edge-scallop" id="gallery">
+      <header class="sec-head gal-head">
+        <p class="sec-script">from the kitchen</p>
+        <h2 class="sec-loud">RECENT<br/>BAKES</h2>
+      </header>
+      <div class="collage">
+        <figure class="ph ph-big"><img src="images/mckenna.jpg" alt="A strawberry layer cake with red glaze and fresh strawberries on top, two slices on pink scalloped plates." width="1080" height="810" loading="lazy" decoding="async" /><figcaption>strawberry birthday cake</figcaption></figure>
+        <figure class="ph"><img src="images/gallery-1.jpg" alt="A kraft box of streusel muffins held up in the sun." width="810" height="1080" loading="lazy" decoding="async" /><figcaption>a dozen muffins</figcaption></figure>
+        <figure class="ph"><img src="images/gallery-4.jpg" alt="A buttercream cake with a glossy strawberry-glazed top." width="1011" height="1080" loading="lazy" decoding="async" /><figcaption>strawberry glaze</figcaption></figure>
+        <figure class="ph"><img src="images/gallery-5.jpg" alt="A ladyfinger-wrapped birthday cake with gold candles." width="810" height="1080" loading="lazy" decoding="async" /><figcaption>birthday cake</figcaption></figure>
+        <figure class="ph"><img src="images/gallery-3.jpg" alt="Glazed streusel muffins on a plate outdoors." width="810" height="1080" loading="lazy" decoding="async" /><figcaption>streusel muffins</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="story edge-scallop" id="story">
+      <figure class="story-photo">
+        <img src="images/story.jpg" alt="Mckenna, the baker, smiling outdoors on a sunny day." width="900" height="1200" loading="lazy" decoding="async" />
+      </figure>
+      <div class="story-copy">
+        <p class="sec-script">hi, I'm Mckenna</p>
+        <h2 class="sec-loud sec-loud-sm">NICE TO<br/>MEET YOU</h2>
+        <p>I went to pastry school in London, and now I bake out of my own kitchen here in Boise. Everything is homemade with real butter and good fruit, in small batches, with a whole lot of love.</p>
+        <p>A box of muffins for the weekend, or a cake for a birthday? I'd love to make it for you.</p>
+        <p class="story-sign">Mckenna</p>
+        <a href="https://www.instagram.com/mckennas.baked.goods/" class="btn btn-ink btn-sm" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg> @mckennas.baked.goods</a>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how edge-scallop">
+      <header class="sec-head how-head">
+        <p class="sec-script">how to order</p>
+        <h2 class="sec-loud">HOW IT WORKS</h2>
+      </header>
+      <ol class="steps">
+        <li class="step"><span class="step-no">1</span><h3 class="step-h">Build your box</h3><p>Tap the muffins you want and build a cake. It adds up in your box as you go.</p></li>
+        <li class="step"><span class="step-no">2</span><h3 class="step-h">Send it to me</h3><p>Add your name, the date you need it, and any notes, then hit send.</p></li>
+        <li class="step"><span class="step-no">3</span><h3 class="step-h">I'll confirm</h3><p>I'll email you back within a day with the details and the total. No payment until it's confirmed.</p></li>
+        <li class="step"><span class="step-no">4</span><h3 class="step-h">Pickup or delivery</h3><p>Free pickup in Boise or $10 local delivery. Baked fresh for your date.</p></li>
+      </ol>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner container">
-      <div class="footer-brand">
-        <img src="images/logo.png" alt="Mckenna's Baked Goods" width="320" height="320" class="footer-mark" loading="lazy" />
-        <p>Small-batch muffins and custom cakes, baked to order in Boise, Idaho.</p>
-      </div>
-      <div class="footer-cols">
-        <nav class="footer-col" aria-label="Footer"><span>Menu</span><a href="#menu">Muffins</a><a href="#cakes">Cakes</a><a href="#gallery">Gallery</a></nav>
-        <div class="footer-col"><span>Get in touch</span><a href="mailto:mckennasbakedgoods@gmail.com">Email</a><a href="https://www.instagram.com/mckennas.baked.goods/" target="_blank" rel="noopener">Instagram</a><a href="#order">Order</a></div>
-      </div>
+  <!-- FOOTER -->
+  <footer class="footer edge-scallop">
+    <div class="foot-cta">
+      <img class="foot-logo" src="images/logo.png" alt="Mckenna's Baked Goods logo" width="120" height="120" />
+      <p class="foot-script">let's bake</p>
+      <h2 class="foot-h">SOMETHING<br/>GOOD.</h2>
+      <a href="#order" class="btn btn-butter foot-btn">Build your box <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
-    <div class="footer-base container">
-      <p>© <span id="year">2026</span> Mckenna's Baked Goods · Boise, Idaho</p>
-      <p>Designed by Nils Matteson &amp; Alec Martin</p>
+    <div class="foot-base">
+      <p class="foot-brand">Mckenna's</p>
+      <p><a href="mailto:mckennasbakedgoods@gmail.com">mckennasbakedgoods@gmail.com</a></p>
+      <p><a href="https://www.instagram.com/mckennas.baked.goods/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg> @mckennas.baked.goods</a></p>
+      <p class="foot-fine">© <span id="year">2026</span> Mckenna's Baked Goods · Boise, Idaho · homemade</p>
+      <p class="foot-credit">Designed &amp; built by Nils Matteson &amp; Alec Martin · <a href="https://mattesonsystems.com" target="_blank" rel="noopener">Matteson&nbsp;Systems</a></p>
     </div>
   </footer>
 
-  <a href="#order" class="order-fab" id="orderFab" hidden><svg class="ic"><use href="#i-bag"/></svg> Your order <span class="order-badge" id="orderBadgeFab">0</span></a>
+  <a class="order-bar" id="orderBar" href="#order" aria-label="Review your order">
+    <span class="order-bar-count" id="orderBarCount">0</span>
+    <span class="order-bar-label">in your box</span>
+    <span class="order-bar-total" id="orderBarTotal">$0.00</span>
+    <span class="order-bar-go">Review <svg class="ic"><use href="#i-arrow"/></svg></span>
+  </a>
 
   <script src="main.js" defer></script>
 </body>
