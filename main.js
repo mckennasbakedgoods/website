@@ -317,7 +317,7 @@
   if (form) {
     var status = $("#formStatus");
     var submitBtn = form.querySelector('button[type="submit"]');
-    var ENDPOINT = "https://formsubmit.co/ajax/nilsmatteson@icloud.com";
+    var ENDPOINT = "https://formsubmit.co/ajax/mckennasbakedgoods@gmail.com";
     var done = function () {
       form.innerHTML = '<div class="box-done"><h3 tabindex="-1">Order sent!</h3><p>Thank you! I\'ll get back to you soon to confirm the details and the total.</p></div>';
       var h = form.querySelector("h3"); if (h) h.focus();
