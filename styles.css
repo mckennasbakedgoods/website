@@ -608,6 +608,9 @@ body::after { display: none; }
 /* lift photo saturation a touch so the food pops with the more vibrant palette */
 .sticker img, .ph img, .story-photo img { filter: saturate(1.1); }
 
+/* confetti burst on a placed order */
+.confetti-bit { position: fixed; z-index: 95; width: 9px; height: 14px; border-radius: 2px; pointer-events: none; will-change: transform, opacity; }
+
 /* decorative loop+sparkle flourishes are a desktop nicety - keep phones clean
    so a doodle can never land on a heading where the layout is tight */
 @media (max-width: 760px) { .dood-b, .dood-f1, .dood-f2, .dood-f3, .dood-gal, .dood-gal2, .dood-gal3, .dood-story { display: none; } }

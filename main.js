@@ -277,6 +277,41 @@
   /* ---------- pickup / delivery (recalc total when it changes) ---------- */
   $$('input[name="fulfillment"]').forEach(function (r) { r.addEventListener("change", updateMeta); });
 
+  /* ---------- confetti when an order is placed ---------- */
+  function confetti() {
+    if (reduce) return;
+    var colors = ["#d96a8e", "#bd3f68", "#ecc15b", "#f6cdd9", "#fbf1ec"];
+    var rect = (boxCard || document.body).getBoundingClientRect();
+    var ox = rect.left + rect.width / 2, oy = Math.max(80, rect.top + 70);
+    var pieces = [];
+    for (var i = 0; i < 90; i++) {
+      var el = document.createElement("i");
+      el.className = "confetti-bit";
+      el.style.background = colors[i % colors.length];
+      el.style.left = ox + "px"; el.style.top = oy + "px";
+      if (i % 3 === 0) el.style.borderRadius = "50%";
+      document.body.appendChild(el);
+      pieces.push({ el: el, x: 0, y: 0,
+        vx: (Math.random() - 0.5) * 16, vy: -(6 + Math.random() * 11),
+        rot: Math.random() * 360, vr: (Math.random() - 0.5) * 26 });
+    }
+    var start = null, DUR = 2000, g = 0.34;
+    function step(ts) {
+      if (start === null) start = ts;
+      var e = ts - start, live = false, j, p;
+      for (j = 0; j < pieces.length; j++) {
+        p = pieces[j];
+        p.vy += g; p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+        p.el.style.transform = "translate(" + p.x + "px," + p.y + "px) rotate(" + p.rot + "deg)";
+        if (e > DUR - 700) p.el.style.opacity = String(Math.max(0, (DUR - e) / 700));
+        if (e < DUR) live = true;
+      }
+      if (live) requestAnimationFrame(step);
+      else for (j = 0; j < pieces.length; j++) pieces[j].el.remove();
+    }
+    requestAnimationFrame(step);
+  }
+
   /* ---------- form submit (Formsubmit AJAX) ---------- */
   var form = $("#orderForm");
   if (form) {
@@ -286,6 +321,7 @@
     var done = function () {
       form.innerHTML = '<div class="box-done"><h3 tabindex="-1">Order sent!</h3><p>Thank you! I\'ll get back to you soon to confirm the details and the total.</p></div>';
       var h = form.querySelector("h3"); if (h) h.focus();
+      confetti();
     };
     form.addEventListener("submit", function (e) {
       e.preventDefault();
