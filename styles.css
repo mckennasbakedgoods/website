@@ -198,6 +198,11 @@ h1, h2, h3 { margin: 0; }
 .box-form input:focus, .box-form textarea:focus { outline: none; box-shadow: 4px 4px 0 var(--berry-deep); transform: translate(-1px,-1px); }
 .box-form textarea { resize: vertical; min-height: 46px; }
 .box-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+/* iOS renders type=date with native chrome that ignores our input styling and
+   clips inside a narrow column — normalize it so it matches the other fields */
+.box-form input[type="date"] { -webkit-appearance: none; appearance: none; min-height: 46px; }
+.box-form input[type="date"]::-webkit-date-and-time-value { text-align: left; margin: 0; }
+.box-form input[type="date"]::-webkit-calendar-picker-indicator { opacity: .55; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .box-send { width: 100%; justify-content: center; margin-top: 1.1rem; }
 .spinner { width: 1rem; height: 1rem; border: 2.5px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin .7s linear infinite; display: none; }
@@ -357,6 +362,7 @@ h1, h2, h3 { margin: 0; }
   .muf { grid-template-columns: 1fr auto; row-gap: .6rem; }
   .muf-add { grid-column: 1 / -1; }
   .cake-row { grid-template-columns: 1fr; gap: .4rem; }
+  .box-2 { grid-template-columns: 1fr; }
   .collage { grid-template-columns: 1fr; }
   .ph, .ph-big, .ph-tall { grid-column: auto; grid-row: auto; aspect-ratio: 4/3; transform: rotate(0deg); }
   .ph-round { aspect-ratio: 1; }
