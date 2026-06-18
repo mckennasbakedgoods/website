@@ -496,6 +496,118 @@ body::after {
 /* drop the free-floating corner doodles that read as "tacked on" */
 .dood-c, .dood-d { display: none; }
 
+/* ===================================================================
+   ORDER OPTIONS — gluten-free toggle + pickup/delivery (theme-agnostic)
+   =================================================================== */
+/* per-line gluten-free chip — pick which items are GF, not the whole order */
+.bi-gf {
+  display: flex; width: fit-content; align-items: center; gap: .2rem; margin-top: 5px;
+  padding: .08rem .5rem; font-family: var(--body); font-weight: 700; font-size: .72rem; line-height: 1.45;
+  color: oklch(52% .03 30); background: transparent; border: 1.5px dashed currentColor;
+  border-radius: 999px; cursor: pointer; transition: color .15s, background .15s, border-color .15s;
+}
+.bi-gf:hover { color: var(--berry-deep); }
+.bi-gf:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--berry-deep); }
+.bi-gf[aria-pressed="true"] { color: oklch(38% .08 150); background: var(--sage); border-style: solid; border-color: oklch(72% .09 150); }
+
+/* delivery note under the total */
+.box-deliv { margin: .4rem 0 0; font-size: .78rem; font-weight: 700; color: var(--berry-deep); text-align: right; }
+.box-deliv[hidden] { display: none; }
+
+.seg { border: 0; padding: 0; margin: .9rem 0 0; min-inline-size: 0; }
+.seg legend { font-weight: 800; font-size: .78rem; letter-spacing: .02em; padding: 0; margin-bottom: .35rem; }
+.seg-row { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.seg-opt { position: relative; }
+.seg-opt input { position: absolute; inset: 0; opacity: 0; cursor: pointer; margin: 0; }
+.seg-opt span { display: flex; align-items: center; justify-content: center; gap: .35rem;
+  padding: .6rem; min-height: 44px; font-weight: 800; font-size: .92rem; color: var(--ink);
+  background: var(--cream); border: 2.5px solid var(--ink); border-radius: 14px;
+  box-shadow: 2px 2px 0 var(--ink); transition: transform .12s, background .15s, box-shadow .12s; }
+.seg-opt input:hover + span { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+.seg-opt input:checked + span { background: var(--berry-deep); color: #fff; }
+.seg-opt input:focus-visible + span { outline: none; box-shadow: 4px 4px 0 var(--berry-deep); }
+.seg-opt input:active + span { transform: translate(1px,1px); box-shadow: 1px 1px 0 var(--ink); }
+
+/* ===================================================================
+   LIGHT PINK BOUTIQUE — toned-down variant the client preferred (softer,
+   lighter, calmer). Overrides the bold pop-art layer above. Delete this
+   whole block to restore the bold strawberry version.
+   =================================================================== */
+:root {
+  /* Vibrant blush-rose: cottagecore softness but more saturated + modern/chic,
+     tuned to sit with the high-saturation photography. Two accents: rose + honey,
+     anchored by a warm deep plum. */
+  --berry:      oklch(61% 0.165 14);   /* vibrant rose */
+  --berry-deep: oklch(48% 0.175 16);   /* rich raspberry — buttons + links */
+  --cream:      oklch(97% 0.016 28);   /* warm white */
+  --cream-2:    oklch(94% 0.028 22);
+  --butter:     oklch(87% 0.115 86);   /* rich honey / gold */
+  --sage:       oklch(85% 0.038 150);  /* retired — kept so any stray ref still resolves */
+  --blush:      oklch(92% 0.058 12);   /* saturated soft pink */
+  --ink:        oklch(32% 0.045 24);   /* warm deep plum — text/anchor */
+  --line:       oklch(84% 0.04 16);    /* warm rose hairline */
+  --pink:       oklch(93% 0.055 10);   /* pink hero top */
+  --pink-2:     oklch(87% 0.082 13);   /* rich pink footer / box */
+}
+
+/* calmer: kill grain, star scatter, marquee, and ambient motion */
+body::after { display: none; }
+.hero::before, .footer::before { display: none; }
+.marquee { display: none; }
+.hero-kicker, .hero-kicker .ic, .foot-btn { animation: none; }
+
+/* hero: soft pink to cream, dark ink text */
+.hero { background: linear-gradient(180deg, var(--pink) 0%, var(--cream) 100%); color: var(--ink); }
+.hero-h .loud { color: var(--ink); text-shadow: none; }
+.hero-h .script { color: var(--berry); }
+.hero-lead { color: oklch(44% .035 22); }
+.hero-kicker { background: var(--butter); color: var(--ink); }
+.btn-ghost { color: var(--ink); border-color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+.btn-ghost:hover { box-shadow: 6px 6px 0 var(--ink); }
+
+/* clean, simple section fills (no blobs / stars / dots) */
+.bakes { background: var(--cream); }
+.gallery { background: var(--blush); }
+.story { background: var(--cream-2); }
+.how { background: var(--blush); }
+.cake { background: var(--blush); }
+.box-card { background: var(--pink-2); }
+.step-no { background: var(--berry-deep); }
+
+/* footer: soft cream to pink, dark ink text */
+.footer { background: linear-gradient(180deg, var(--cream) 0%, var(--pink-2) 100%); color: var(--ink); }
+.foot-script { color: var(--berry); }
+.foot-h { color: var(--ink); text-shadow: none; }
+.foot-base { border-top-color: var(--line); }
+.foot-base p { color: oklch(46% .03 22); }
+.foot-base a, .foot-credit a { color: var(--berry-deep); }
+
+/* cottagecore softening: swap the hard pop-art "sticker" shadows on the big
+   surfaces for soft diffuse ones, thin a couple heavy outlines, and keep the
+   fine print legible on the muted palette. */
+.sticker img, .ph, .ph:nth-child(3), .box-card, .cake, .foot-logo {
+  box-shadow: 0 7px 18px oklch(38% .06 24 / .17);
+}
+.step-no, .st-tag, .muf-badge { box-shadow: 0 3px 8px oklch(38% .06 24 / .16); }
+.step { box-shadow: 0 5px 14px oklch(38% .06 24 / .14); }
+.step:hover { box-shadow: 0 9px 22px oklch(38% .06 24 / .2); }
+.box-card, .cake, .ph { border-width: 2px; }
+.foot-fine, .foot-credit { color: oklch(42% .035 24) !important; }
+.bi-gf { color: oklch(46% .04 28); }
+
+/* palette cohesion: TWO accents only — dusty rose (primary) + honey (warm
+   highlight). Drop the one-off sage and stop the rainbow (step numbers were
+   rose/honey/sage/blush; sticker tags + the GF chip were their own colors). */
+.step-no,
+.step:nth-child(2) .step-no,
+.step:nth-child(3) .step-no,
+.step:nth-child(4) .step-no { background: var(--berry-deep); color: var(--cream); }
+.st-2 .st-tag, .st-3 .st-tag { background: var(--butter); }
+.bi-gf[aria-pressed="true"] { color: #fff; background: var(--berry-deep); border-color: var(--berry-deep); }
+
+/* lift photo saturation a touch so the food pops with the more vibrant palette */
+.sticker img, .ph img, .story-photo img { filter: saturate(1.1); }
+
 /* decorative loop+sparkle flourishes are a desktop nicety - keep phones clean
    so a doodle can never land on a heading where the layout is tight */
 @media (max-width: 760px) { .dood-b, .dood-f1, .dood-f2, .dood-f3, .dood-gal, .dood-gal2, .dood-gal3, .dood-story { display: none; } }

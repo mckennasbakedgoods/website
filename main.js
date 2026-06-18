@@ -44,23 +44,34 @@
     setTimeout(function () { el.remove(); }, 580);
   }
 
+  var DELIVERY_FEE = 10;
+  function isDelivery() {
+    var r = document.querySelector('input[name="fulfillment"]:checked');
+    return !!r && /delivery/i.test(r.value);
+  }
   function summary() {
     var out = [];
     lines.forEach(function (l) {
-      out.push((l.spec ? l.name + " (" + l.spec + ")" : l.name) + " - " + l.qty + " - " + money(l.price));
+      var nm = (l.spec ? l.name + " (" + l.spec + ")" : l.name) + (l.gf ? " [gluten-free]" : "");
+      out.push(nm + " - " + l.qty + " - " + money(l.price));
     });
+    if (lines.size > 0 && isDelivery()) out.push("Local delivery - " + money(DELIVERY_FEE));
     return out.join("\n");
   }
 
   function updateMeta() {
-    var n = lines.size, total = 0;
-    lines.forEach(function (l) { total += l.price; });
+    var n = lines.size, itemsTotal = 0;
+    lines.forEach(function (l) { itemsTotal += l.price; });
+    var deliv = (n > 0 && isDelivery()) ? DELIVERY_FEE : 0;
+    var total = itemsTotal + deliv;
     if (emptyEl) emptyEl.hidden = n > 0;
     if (titleEl) titleEl.innerHTML = n > 0 ? "Looking<br>good!" : "Empty<br>for now";
     if (totalEl) {
       totalEl.textContent = money(total);
       if (n > 0 && !reduce) { totalEl.classList.remove("bump"); void totalEl.offsetWidth; totalEl.classList.add("bump"); }
     }
+    var totalField = $("#totalField"); if (totalField) totalField.value = money(total);
+    var delivNote = $("#boxDeliv"); if (delivNote) delivNote.hidden = !deliv;
     if (hidden) hidden.value = summary();
     lastTotal = total;
     if (boxCard) boxCard.classList.toggle("has-items", n > 0);
@@ -80,6 +91,20 @@
     name.className = "bi-name";
     name.textContent = l.name;
     if (l.spec) { var s = document.createElement("small"); s.textContent = l.spec; name.appendChild(s); }
+    var gf = document.createElement("button");
+    gf.type = "button"; gf.className = "bi-gf";
+    gf.setAttribute("aria-pressed", l.gf ? "true" : "false");
+    gf.textContent = (l.gf ? "✓ " : "+ ") + "gluten-free";
+    gf.setAttribute("aria-label", (l.gf ? "Remove gluten-free from " : "Make gluten-free: ") + l.name + ", " + l.qty);
+    gf.addEventListener("click", function () {
+      var cur = lines.get(id); if (!cur) return;
+      cur.gf = !cur.gf;
+      gf.setAttribute("aria-pressed", cur.gf ? "true" : "false");
+      gf.textContent = (cur.gf ? "✓ " : "+ ") + "gluten-free";
+      updateMeta();
+      announce(cur.name + (cur.gf ? " set to gluten-free." : " no longer gluten-free."));
+    });
+    name.appendChild(gf);
     var qty = document.createElement("span"); qty.className = "bi-qty"; qty.textContent = l.qty;
     var pr = document.createElement("span"); pr.className = "bi-price"; pr.textContent = money(l.price);
     var rm = document.createElement("button");
@@ -164,7 +189,7 @@
       cakePreview.classList.remove("ready");
     }
   }
-  function pushCake() { addLine("cake", { name: '6" Cake', qty: "1", price: 60, spec: cakeSpec() }); }
+  function pushCake() { var p = lines.get("cake"); addLine("cake", { name: '6" Cake', qty: "1", price: 60, spec: cakeSpec(), gf: p ? p.gf : false }); }
   var CAKE_CHEERS = ["Mmm, great choice.", "Ooh, excellent taste.", "That's going to be gorgeous.", "Yes, chef.", "Oh, she's a beauty."];
   function cakeCheer() {
     if (!cakePreview) return;
@@ -248,6 +273,9 @@
     img.addEventListener("error", fail);
     if (img.complete && img.naturalWidth === 0) fail();
   });
+
+  /* ---------- pickup / delivery (recalc total when it changes) ---------- */
+  $$('input[name="fulfillment"]').forEach(function (r) { r.addEventListener("change", updateMeta); });
 
   /* ---------- form submit (Formsubmit AJAX) ---------- */
   var form = $("#orderForm");

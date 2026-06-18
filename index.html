@@ -180,12 +180,14 @@
               <span>Estimated total</span>
               <span class="box-amount" id="boxTotal">$0.00</span>
             </div>
+            <p class="box-deliv" id="boxDeliv" hidden>Includes $10 local delivery.</p>
 
             <form class="box-form" id="orderForm" action="https://formsubmit.co/mckennasbakedgoods@gmail.com" method="POST">
               <input type="hidden" name="_subject" value="New order, Mckenna's Baked Goods" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="order" id="orderHidden" />
+              <input type="hidden" name="estimated_total" id="totalField" value="$0.00" />
               <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <label for="f-name">Your name</label>
               <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="your name" />
@@ -195,8 +197,15 @@
                 <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="optional" /></div>
                 <div><label for="f-date">Date needed <small>(2+ days)</small></label><input id="f-date" name="date_needed" type="date" /></div>
               </div>
+              <fieldset class="seg">
+                <legend>Pickup or delivery?</legend>
+                <div class="seg-row">
+                  <label class="seg-opt"><input type="radio" name="fulfillment" value="Pickup (free)" checked /><span>Pickup</span></label>
+                  <label class="seg-opt"><input type="radio" name="fulfillment" value="Delivery (+$10)" /><span>Delivery</span></label>
+                </div>
+              </fieldset>
               <label for="f-notes">Anything else?</label>
-              <textarea id="f-notes" name="notes" rows="2" placeholder="allergies, a message on the cake, pickup or delivery"></textarea>
+              <textarea id="f-notes" name="notes" rows="2" placeholder="allergies, a message on the cake, anything else"></textarea>
               <button type="submit" class="btn btn-berry box-send"><span class="spinner" aria-hidden="true"></span> Send my order <svg class="ic"><use href="#i-arrow"/></svg></button>
               <p class="box-fine">Free pickup in Boise or $10 local delivery. I reply within a day, and you don't pay until I confirm your order.</p>
               <p class="box-status" id="formStatus" role="status" aria-live="polite"></p>
